@@ -11,7 +11,7 @@ const blueBtn = document.querySelector('.blue')
 const greenBtn = document.querySelector('.green')
 const yellowBtn = document.querySelector('.yellow')
 
-redBtn.addEventListener('click', e => {
+ const clickRed = redBtn.addEventListener('click', e => {
     if (e.target.classList.contains('red'))
         redBtn.style.opacity = "90%"
         setTimeout(function(){
@@ -43,6 +43,44 @@ yellowBtn.addEventListener('click', e => {
         setTimeout(function(){
             yellowBtn.style.opacity = "40%"
         },300)
-       
-    
+        
 })
+
+function getRandomColor() {
+    if (Math.floor(Math.random() * 4)+1 === 1){
+        redBtn.style.opacity = "90%"
+        setTimeout(function(){
+            redBtn.style.opacity = "40%"
+        },300)
+        console.log(getRandomColor)
+    } 
+
+    else if (Math.floor(Math.random() * 4)+1 === 2){
+        blueBtn.style.opacity = "90%"
+        setTimeout(function(){
+            blueBtn.style.opacity = "40%"
+        },300)
+        console.log(getRandomColor)
+    } 
+
+    else if (Math.floor(Math.random() * 4)+1 === 3){
+        greenBtn.style.opacity = "90%"
+        setTimeout(function(){
+            greenBtn.style.opacity = "40%"
+        },300)
+        console.log(getRandomColor)
+    } 
+
+    else if (Math.floor(Math.random() * 4)+1 === 4){
+        yellowBtn.style.opacity = "90%"
+        setTimeout(function(){
+            yellowBtn.style.opacity = "40%"
+        },300)
+       console.log(getRandomColor)
+    } 
+    else console.log('Something is not working')
+}
+getRandomColor()
+
+// let test = Math.floor(Math.random() * 4)+1
+// console.log(test)
