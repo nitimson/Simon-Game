@@ -45,42 +45,53 @@ yellowBtn.addEventListener('click', e => {
         },300)
         
 })
-
+let randomColor = function getRandomIntInclusive(min, max){
+    min = Math.ceil(min)
+    max = Math.floor(max)
+    console.log(Math.floor(Math.random() * (max - min +1)+ min))
+    return Math.floor(Math.random() * (max - min +1)+ min)
+}
 function getRandomColor() {
-    if (Math.floor(Math.random() * 4)+1 === 1){
-        redBtn.style.opacity = "90%"
-        setTimeout(function(){
-            redBtn.style.opacity = "40%"
-        },300)
-        console.log(getRandomColor)
-    } 
+    let randomValue = randomColor(1,4)
 
-    else if (Math.floor(Math.random() * 4)+1 === 2){
-        blueBtn.style.opacity = "90%"
-        setTimeout(function(){
-            blueBtn.style.opacity = "40%"
-        },300)
-        console.log(getRandomColor)
-    } 
+        if (randomValue === 1){
+            redBtn.style.opacity = "90%"
+            setTimeout(function(){
+                redBtn.style.opacity = "40%"
+            },300)
+            console.log(randomColor)
+        } 
 
-    else if (Math.floor(Math.random() * 4)+1 === 3){
-        greenBtn.style.opacity = "90%"
-        setTimeout(function(){
-            greenBtn.style.opacity = "40%"
-        },300)
-        console.log(getRandomColor)
-    } 
+        else if (randomValue === 2){
+            blueBtn.style.opacity = "90%"
+            setTimeout(function(){
+                blueBtn.style.opacity = "40%"
+            },300)
+            console.log(randomColor)
+        } 
 
-    else if (Math.floor(Math.random() * 4)+1 === 4){
-        yellowBtn.style.opacity = "90%"
-        setTimeout(function(){
-            yellowBtn.style.opacity = "40%"
-        },300)
-       console.log(getRandomColor)
-    } 
-    else console.log('Something is not working')
+        else if (randomValue === 3){
+            greenBtn.style.opacity = "90%"
+            setTimeout(function(){
+                greenBtn.style.opacity = "40%"
+            },300)
+            console.log(randomColor)
+        } 
+
+        else if (randomValue === 4){
+            yellowBtn.style.opacity = "90%"
+            setTimeout(function(){
+                yellowBtn.style.opacity = "40%"
+            },300)
+            console.log(randomColor)
+        } 
+        else {
+            console.log('Something is not working')
+        }
+
 }
 getRandomColor()
 
 // let test = Math.floor(Math.random() * 4)+1
 // console.log(test)
+// randomColor(1,4)
