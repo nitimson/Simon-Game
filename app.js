@@ -1,5 +1,7 @@
 const computer = []
 const player = []
+let game = false
+
 
 const red = 'red'
 const blue = 'blue'
@@ -10,8 +12,9 @@ const redBtn = document.querySelector('.red')
 const blueBtn = document.querySelector('.blue')
 const greenBtn = document.querySelector('.green')
 const yellowBtn = document.querySelector('.yellow')
+const startBtn = document.querySelector('.start')
 
- const clickRed = redBtn.addEventListener('click', e => {
+redBtn.addEventListener('click', e => {
     if (e.target.classList.contains('red'))
         redBtn.style.opacity = "90%"
         setTimeout(function(){
@@ -90,6 +93,17 @@ function getRandomColor() {
         }
 
 }
+
+startBtn.addEventListener('click', e => {
+    if (e.target.classList.contains('start'))
+       getRandomColor()
+          
+})
+// if 
+// while (game === false){
+    
+// }
+
 getRandomColor()
 
 // let test = Math.floor(Math.random() * 4)+1
