@@ -3,7 +3,6 @@ const playerChoices = []
 let currentPlayer
 let game = false
 
-
 const redBtn = document.querySelector('.red')
 const blueBtn = document.querySelector('.blue')
 const greenBtn = document.querySelector('.green')
@@ -11,31 +10,48 @@ const yellowBtn = document.querySelector('.yellow')
 const startBtn = document.querySelector('.start')
 const quitBtn = document.querySelector('.quit')
 
-let red = redBtn.addEventListener('click', e => {
+redBtn.addEventListener('click', e => {
+        const redColor = 1
         redBtn.style.opacity = "90%"
         setTimeout(function(){
             redBtn.style.opacity = "40%"
-        },300)        
+        },300)
+        playerChoices.push(redColor)
+        console.log(playerChoices)
+        return playerChoices
 })
 
-let blue = blueBtn.addEventListener('click', e => {
+blueBtn.addEventListener('click', e => {
+        const blueColor = 2
         blueBtn.style.opacity = "90%"
         setTimeout(function(){
             blueBtn.style.opacity = "40%"
-        },300)         
+        },300)      
+        playerChoices.push(blueColor)
+        console.log(playerChoices)
+        return playerChoices  
 })
-let green = greenBtn.addEventListener('click', e => {
+
+greenBtn.addEventListener('click', e => {
+        const greenColor = 3
         greenBtn.style.opacity = "90%"
         setTimeout(function(){
             greenBtn.style.opacity = "40%"
-        },300)     
+        },300) 
+        playerChoices.push(greenColor)
+        console.log(playerChoices)
+        return playerChoices    
 })
 
-let yellow = yellowBtn.addEventListener('click', e => {
+yellowBtn.addEventListener('click', e => {
+        const yellowColor = 4
         yellowBtn.style.opacity = "90%"
         setTimeout(function(){
             yellowBtn.style.opacity = "40%"
-        },300)       
+        },300)   
+        playerChoices.push(yellowColor)
+        console.log(playerChoices)
+        return playerChoices    
 })
 
 let randomColor = (min, max) => {
@@ -95,6 +111,7 @@ startBtn.addEventListener('click', e => {
             computerChoices.push(r)
             console.log(computerChoices) 
 })
+
 
 
 // })
