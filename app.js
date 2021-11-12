@@ -1,7 +1,8 @@
-let computerChoices = []
-let playerChoices = []
+let computerChoices = [2]
+let playerChoices = [2]
 let level
-
+compareChoices()
+console.log(compareChoices)
 let game = false
 
 const redBtn = document.querySelector('.red')
@@ -11,44 +12,8 @@ const yellowBtn = document.querySelector('.yellow')
 const startGame = document.querySelector('.start')
 const quitBtn = document.querySelector('.quit')
 
-// ------- This compares computer array with player array -----------
-function compareChoices(){
-   for (i=0; i < computerChoices.length; i ++){
-       if (computerChoices[i] != playerChoices[i]){
-       return false
-       }
-   }
-   return true
-}
-
-// --------- Functions to make color opacity change ----------
-function red(){
-    redBtn.style.opacity = "90%"
-        setTimeout(function(){
-            redBtn.style.opacity = "40%"
-        },300)
-}
-
-function blue(){
-    blueBtn.style.opacity = "90%"
-        setTimeout(function(){
-            blueBtn.style.opacity = "40%"
-        },300)
-}
-function green(){
-    greenBtn.style.opacity = "90%"
-        setTimeout(function(){
-            greenBtn.style.opacity = "40%"
-        },300)
-}
-function yellow(){
-    yellowBtn.style.opacity = "90%"
-        setTimeout(function(){
-            yellowBtn.style.opacity = "40%"
-        },300)
-}
-
 // ------------ Click events for each color, changes opacity, and pushes # into player array, then compares computerChoices array to playerChoices array.  ---------------------------------------------------------
+function playersTurn(){   
 
 redBtn.addEventListener('click', e => {
         let redColor = 1
@@ -58,16 +23,8 @@ redBtn.addEventListener('click', e => {
         },300)
         playerChoices.push(redColor)
         console.log(playerChoices)
-        // function red(){
-        //     redBtn.style.opacity = "90%"
-        //         setTimeout(function(){
-        //             redBtn.style.opacity = "40%"
-        //         },300)
-        // }
         compareChoices()
         console.log(compareChoices)
-        return playerChoices
-
 })
 
 blueBtn.addEventListener('click', e => {
@@ -77,9 +34,8 @@ blueBtn.addEventListener('click', e => {
             blueBtn.style.opacity = "40%"
         },300)      
         playerChoices.push(blueColor)
-        console.log(playerChoices)
         compareChoices()
-        return playerChoices  
+        console.log(playerChoices)    
 })
 
 greenBtn.addEventListener('click', e => {
@@ -89,9 +45,8 @@ greenBtn.addEventListener('click', e => {
             greenBtn.style.opacity = "40%"
         },300) 
         playerChoices.push(greenColor)
-        console.log(playerChoices)
         compareChoices()
-        return playerChoices    
+        console.log(playerChoices)  
 })
 
 yellowBtn.addEventListener('click', e => {
@@ -101,10 +56,22 @@ yellowBtn.addEventListener('click', e => {
             yellowBtn.style.opacity = "40%"
         },300)   
         playerChoices.push(yellowColor)
-        console.log(playerChoices)
         compareChoices()
-        return playerChoices    
+        console.log(playerChoices)      
 })
+}
+
+// ------- This compares computer array with player array -----------
+function compareChoices(){
+    for (i=0; i <= computerChoices.length; i ++){
+        if (computerChoices[i] !== playerChoices[i]){
+        console.log(compareChoices)
+         return false
+        }
+    } 
+    console.log(compareChoices)
+    return true
+ }
 
 
 let randomColor = (min, max) => {
@@ -123,7 +90,6 @@ function getRandomColor() {
             setTimeout(function(){
                 redBtn.style.opacity = "40%"
             },300)
-            console.log(randomColor)
             return randomValue
         } 
 
@@ -132,7 +98,6 @@ function getRandomColor() {
             setTimeout(function(){
                 blueBtn.style.opacity = "40%"
             },300)
-            console.log(randomColor)
             return randomValue
         } 
 
@@ -141,7 +106,6 @@ function getRandomColor() {
             setTimeout(function(){
                 greenBtn.style.opacity = "40%"
             },300)
-            console.log(randomColor)
             return randomValue
         } 
 
@@ -150,7 +114,6 @@ function getRandomColor() {
             setTimeout(function(){
                 yellowBtn.style.opacity = "40%"
             },300)
-            console.log(randomColor)
             return randomValue
         } 
         else {
@@ -164,8 +127,10 @@ function getRandomColor() {
 let r
 
 startGame.addEventListener('click', e => {
+    computerTurn()
             r = getRandomColor()
             computerChoices.push(r)
+            playersTurn()
             // displayComputerChoices()
             console.log(computerChoices) 
 })
@@ -174,41 +139,40 @@ startGame.addEventListener('click', e => {
 function displayComputerChoices(){
     for (i=0; i < computerChoices.length; i++){
         if (computerChoices[i] === 1){
-            red()
-            // redBtn.style.opacity = "90%"
-            // setTimeout(function(){
-            //     redBtn.style.opacity = "40%"
-            // },300)
-            // console.log(randomColor)
-           
+            // red()
+            redBtn.style.opacity = "90%"
+            setTimeout(function(){
+                redBtn.style.opacity = "40%"
+            },300)
+            console.log(randomColor)        
         } 
 
-        else if (computerChoices[i] === 2){
-            blue()
-            // blueBtn.style.opacity = "90%"
-            // setTimeout(function(){
-            //     blueBtn.style.opacity = "40%"
-            // },300)
-            // console.log(randomColor)
+        if (computerChoices[i] === 2){
+            // blue()
+            blueBtn.style.opacity = "90%"
+            setTimeout(function(){
+                blueBtn.style.opacity = "40%"
+            },300)
+            console.log(randomColor)
             
         } 
 
-        else if (computerChoices[i] === 3){
-            green()
-            // greenBtn.style.opacity = "90%"
-            // setTimeout(function(){
-            //     greenBtn.style.opacity = "40%"
-            // },300)
-            // console.log(randomColor)
+        if (computerChoices[i] === 3){
+            // green()
+            greenBtn.style.opacity = "90%"
+            setTimeout(function(){
+                greenBtn.style.opacity = "40%"
+            },300)
+            console.log(randomColor)
         }
 
-        else if (computerChoices[i] === 4){
-            yellow()
-            // yellowBtn.style.opacity = "90%"
-            // setTimeout(function(){
-            //     yellowBtn.style.opacity = "40%"
-            // },300)
-            // console.log(randomColor)
+        if (computerChoices[i] === 4){
+            // yellow()
+            yellowBtn.style.opacity = "90%"
+            setTimeout(function(){
+                yellowBtn.style.opacity = "40%"
+            },300)
+            console.log(randomColor)
             
         } 
         else {
@@ -218,9 +182,47 @@ function displayComputerChoices(){
     }
 }
 
+// function playerTurn(){
+//     for (i=0; i <= computerChoices.length; i++){
+//         if (compareChoices === true){
 
-function nextTurn(){
-    r = getRandomColor()
-    computerChoices.push(r)
-    console.log(computerChoices) 
+
+
+//         }
+//     }
+// }
+
+
+
+function computerTurn(){
+    compareChoices()
+
+    if (compareChoices === true){
+        let playerChoices = []
+        console.log(playerChoices)
+        displayComputerChoices()
+        r = getRandomColor()
+        computerChoices.push(r)
+        console.log(computerChoices) 
+        playersTurn()
+    }
+    if (compareChoices === false){
+        displayComputerChoices()
+        playersTurn()
+        compareChoices()
+        if (compareChoices === true){
+            let playerChoices = []
+            console.log(playerChoices)
+            displayComputerChoices()
+            r = getRandomColor()
+            computerChoices.push(r)
+            console.log(computerChoices) 
+        }
+        else 
+            playerChoices = []
+            let computerChoices = []
+            alert ('Game Over')
+    }
+   
 }
+
