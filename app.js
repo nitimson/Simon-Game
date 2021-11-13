@@ -1,9 +1,6 @@
-let computerChoices = [2]
-let playerChoices = [2]
+let computerChoices = []
+let playerChoices = []
 let level
-compareChoices()
-console.log(compareChoices)
-let game = false
 
 const redBtn = document.querySelector('.red')
 const blueBtn = document.querySelector('.blue')
@@ -12,10 +9,10 @@ const yellowBtn = document.querySelector('.yellow')
 const startGame = document.querySelector('.start')
 const quitBtn = document.querySelector('.quit')
 
-// ------------ Click events for each color, changes opacity, and pushes # into player array, then compares computerChoices array to playerChoices array.  ---------------------------------------------------------
-function playersTurn(){   
 
-redBtn.addEventListener('click', e => {
+function playersTurn(){   
+    if (computerChoices)
+    redBtn.addEventListener('click', e => {
         let redColor = 1
         redBtn.style.opacity = "90%"
         setTimeout(function(){
@@ -23,42 +20,49 @@ redBtn.addEventListener('click', e => {
         },300)
         playerChoices.push(redColor)
         console.log(playerChoices)
-        compareChoices()
-        console.log(compareChoices)
-})
+        if (playerChoices.length === computerChoices.length){
+            computerTurn()
+        }
+    })
 
-blueBtn.addEventListener('click', e => {
+    blueBtn.addEventListener('click', e => {
         let blueColor = 2
         blueBtn.style.opacity = "90%"
         setTimeout(function(){
             blueBtn.style.opacity = "40%"
         },300)      
         playerChoices.push(blueColor)
-        compareChoices()
-        console.log(playerChoices)    
-})
+        console.log(playerChoices) 
+        if (playerChoices.length === computerChoices.length){
+            computerTurn()
+        }   
+    })
 
-greenBtn.addEventListener('click', e => {
+    greenBtn.addEventListener('click', e => {
         let greenColor = 3
         greenBtn.style.opacity = "90%"
         setTimeout(function(){
             greenBtn.style.opacity = "40%"
         },300) 
         playerChoices.push(greenColor)
-        compareChoices()
-        console.log(playerChoices)  
-})
+        console.log(playerChoices) 
+        if (playerChoices.length === computerChoices.length){
+            computerTurn()
+        } 
+    })
 
-yellowBtn.addEventListener('click', e => {
+    yellowBtn.addEventListener('click', e => {
         let yellowColor = 4
         yellowBtn.style.opacity = "90%"
         setTimeout(function(){
             yellowBtn.style.opacity = "40%"
         },300)   
-        playerChoices.push(yellowColor)
-        compareChoices()
-        console.log(playerChoices)      
-})
+        playerChoices.push(yellowColor)   
+        console.log(playerChoices) 
+        if (playerChoices.length === computerChoices.length){
+            computerTurn()
+        }  
+    })
 }
 
 // ------- This compares computer array with player array -----------
@@ -71,7 +75,7 @@ function compareChoices(){
     } 
     console.log(compareChoices)
     return true
- }
+}
 
 
 let randomColor = (min, max) => {
@@ -122,95 +126,78 @@ function getRandomColor() {
         return randomValue
 }
 
-// ------- Click 'Start' button will cause computer to choose random color and change it's opacity, then push that value into the computerChoices array. ---------------------------------------
-
 let r
 
 startGame.addEventListener('click', e => {
-    computerTurn()
             r = getRandomColor()
             computerChoices.push(r)
             playersTurn()
-            // displayComputerChoices()
             console.log(computerChoices) 
 })
 
-// -------  
+
 function displayComputerChoices(){
-    for (i=0; i < computerChoices.length; i++){
+    for (i=0; i <= computerChoices.length; i++){
         if (computerChoices[i] === 1){
-            // red()
             redBtn.style.opacity = "90%"
             setTimeout(function(){
                 redBtn.style.opacity = "40%"
             },300)
-            console.log(randomColor)        
+            console.log(randomColor)
+            console.log(computerChoices)        
         } 
 
-        if (computerChoices[i] === 2){
-            // blue()
+        else if (computerChoices[i] === 2){
             blueBtn.style.opacity = "90%"
             setTimeout(function(){
                 blueBtn.style.opacity = "40%"
             },300)
             console.log(randomColor)
-            
+            console.log(computerChoices)
         } 
 
-        if (computerChoices[i] === 3){
-            // green()
+        else if (computerChoices[i] === 3){
             greenBtn.style.opacity = "90%"
             setTimeout(function(){
                 greenBtn.style.opacity = "40%"
             },300)
             console.log(randomColor)
+            console.log(computerChoices)
         }
 
-        if (computerChoices[i] === 4){
-            // yellow()
+        else if (computerChoices[i] === 4){
             yellowBtn.style.opacity = "90%"
             setTimeout(function(){
                 yellowBtn.style.opacity = "40%"
             },300)
             console.log(randomColor)
-            
+              
         } 
-        else {
-            console.log('Something is not working')
-        }
-        
     }
 }
 
-// function playerTurn(){
-//     for (i=0; i <= computerChoices.length; i++){
-//         if (compareChoices === true){
-
-
-
-//         }
-//     }
-// }
-
-
-
 function computerTurn(){
-    compareChoices()
-
-    if (compareChoices === true){
+    console.log('computerTurn')
+    
+    if (compareChoices() === true){
         let playerChoices = []
         console.log(playerChoices)
-        displayComputerChoices()
-        r = getRandomColor()
-        computerChoices.push(r)
+        setTimeout(function(){
+            displayComputerChoices()
+        },500)
+        setTimeout(function(){
+            r = getRandomColor()
+            computerChoices.push(r)
+        },1000)
         console.log(computerChoices) 
         playersTurn()
     }
-    if (compareChoices === false){
+
+    else if (compareChoices() === false){
         displayComputerChoices()
         playersTurn()
         compareChoices()
-        if (compareChoices === true){
+        if (compareChoices() === true){
             let playerChoices = []
             console.log(playerChoices)
             displayComputerChoices()
