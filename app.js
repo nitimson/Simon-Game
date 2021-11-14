@@ -10,8 +10,10 @@ const startGame = document.querySelector('.start')
 const quitBtn = document.querySelector('.quit')
 
 
-function playersTurn(){   
-    if (computerChoices)
+
+
+// function playersTurn(){   
+    // if (computerChoices)
     redBtn.addEventListener('click', e => {
         let redColor = 1
         redBtn.style.opacity = "90%"
@@ -20,9 +22,9 @@ function playersTurn(){
         },300)
         playerChoices.push(redColor)
         console.log(playerChoices)
-        if (playerChoices.length === computerChoices.length){
-            computerTurn()
-        }
+        // if (playerChoices.length === computerChoices.length){
+        //     computerTurn()
+        // }
     })
 
     blueBtn.addEventListener('click', e => {
@@ -33,9 +35,9 @@ function playersTurn(){
         },300)      
         playerChoices.push(blueColor)
         console.log(playerChoices) 
-        if (playerChoices.length === computerChoices.length){
-            computerTurn()
-        }   
+        // if (playerChoices.length === computerChoices.length){
+        //     computerTurn()
+        // }   
     })
 
     greenBtn.addEventListener('click', e => {
@@ -46,9 +48,9 @@ function playersTurn(){
         },300) 
         playerChoices.push(greenColor)
         console.log(playerChoices) 
-        if (playerChoices.length === computerChoices.length){
-            computerTurn()
-        } 
+        // if (playerChoices.length === computerChoices.length){
+        //     computerTurn()
+        // } 
     })
 
     yellowBtn.addEventListener('click', e => {
@@ -59,22 +61,25 @@ function playersTurn(){
         },300)   
         playerChoices.push(yellowColor)   
         console.log(playerChoices) 
-        if (playerChoices.length === computerChoices.length){
-            computerTurn()
-        }  
+        // if (playerChoices.length === computerChoices.length){
+        //     computerTurn()
+        // }  
     })
-}
+// }
 
 // ------- This compares computer array with player array -----------
 function compareChoices(){
-    for (i=0; i <= computerChoices.length; i ++){
+    if (computerChoices.length === playerChoices.length){
+    for (let i=0; i <= computerChoices.length; i ++){
         if (computerChoices[i] !== playerChoices[i]){
         console.log(compareChoices)
          return false
         }
     } 
+}
     console.log(compareChoices)
     return true
+
 }
 
 
@@ -137,7 +142,7 @@ startGame.addEventListener('click', e => {
 
 
 function displayComputerChoices(){
-    for (i=0; i <= computerChoices.length; i++){
+    for (let i=0; i <= computerChoices.length; i++){
         if (computerChoices[i] === 1){
             redBtn.style.opacity = "90%"
             setTimeout(function(){
@@ -176,6 +181,12 @@ function displayComputerChoices(){
     }
 }
 
+function playersTurn(){
+    if (playerChoices.length === computerChoices.length){
+        computerTurn
+    }
+}
+
 function computerTurn(){
     console.log('computerTurn')
     
@@ -183,6 +194,8 @@ function computerTurn(){
         let playerChoices = []
         console.log(playerChoices)
         setTimeout(function(){
+            // r = getRandomColor()
+            // computerChoices.push(r)
             displayComputerChoices()
         },500)
         setTimeout(function(){
