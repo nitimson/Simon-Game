@@ -21,7 +21,9 @@ async function playersTurn(){
         console.log(playerChoices)
             if(compareChoices() == true){
                 playerChoices = []
-                computerTurn()
+                setTimeout(function(){
+                    computerTurn()
+                }, 500)
             }
     })
 
@@ -33,9 +35,11 @@ async function playersTurn(){
         },300)      
         playerChoices.push(blueColor)
         console.log(playerChoices) 
-            if (compareChoices() ==true){
+            if (compareChoices() == true){
                 playerChoices = []
-                computerTurn()
+                setTimeout(function(){
+                    computerTurn()
+                }, 500)
             }
     })
 
@@ -49,7 +53,9 @@ async function playersTurn(){
         console.log(playerChoices)
             if(compareChoices() == true){
                 playerChoices = []
-                computerTurn()
+                setTimeout(function(){
+                    computerTurn()
+                }, 500)
             }
     })
 
@@ -63,7 +69,10 @@ async function playersTurn(){
         console.log(playerChoices) 
             if(compareChoices() == true){
                 playerChoices = []
-                computerTurn()
+                setTimeout(function(){
+                    computerTurn()
+                }, 500)
+                
             }
     })
     }
@@ -75,19 +84,19 @@ function compareChoices(){
     if (computerChoices.length === playerChoices.length){
         for (let i=0; i <= computerChoices.length; i ++){
             if (computerChoices[i] !== playerChoices[i]){
-                console.log(compareChoices)
+                // console.log(compareChoices)
                 alert('Sorry that is not correct.')
                 gameOver()
                 return false
             }
             else {
-                console.log(compareChoices)
+                // console.log(compareChoices)
                 return true
             } 
         } 
         
     }
-        console.log(compareChoices)
+        // console.log(compareChoices)
         return false
 }
 
@@ -104,24 +113,28 @@ function getRandomColor() {
 
         if (randomValue === 1){
             computerChoices.push(1)
+            console.log(computerChoices)
             displayComputerChoices()
             return randomValue
         } 
 
         else if (randomValue === 2){
             computerChoices.push(2)
+            console.log(computerChoices)
             displayComputerChoices()
             return randomValue
         } 
 
         else if (randomValue === 3){
             computerChoices.push(3)
+            console.log(computerChoices)
             displayComputerChoices()
             return randomValue
         } 
 
         else if (randomValue === 4){
             computerChoices.push(4)
+            console.log(computerChoices)
             displayComputerChoices()
             return randomValue
         } 
@@ -136,8 +149,7 @@ function getRandomColor() {
 startGame.addEventListener('click', e => {
             
             getRandomColor()
-            // computerChoices.push(r)
-            console.log(computerChoices) 
+            // console.log(computerChoices) 
             playersTurn()
            
 })
@@ -160,7 +172,7 @@ async function displayComputerChoices(){
             setTimeout(function(){
                 redBtn.style.opacity = "40%"
             },1000)
-            console.log(computerChoices) 
+             
             await waiting(1000)    
         }
        
