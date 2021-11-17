@@ -1,6 +1,5 @@
 let computerChoices = []
 let playerChoices = []
-let level
 
 const redBtn = document.querySelector('#red')
 const blueBtn = document.querySelector('#blue')
@@ -8,6 +7,8 @@ const greenBtn = document.querySelector('#green')
 const yellowBtn = document.querySelector('#yellow')
 const startGame = document.querySelector('.start')
 const resetBtn = document.querySelector('.reset')
+// const levelCounter = document.querySelector('#level')
+
 
 async function playersTurn(){
     console.log(compareChoices())
@@ -83,17 +84,20 @@ async function playersTurn(){
 function compareChoices(){
     if (computerChoices.length === playerChoices.length){
         for (let i=0; i <= computerChoices.length; i++){
-            
-            console.log(computerChoices[i], playerChoices[i])
+            // console.log(computerChoices[i], playerChoices[i])
             if (computerChoices[i] != playerChoices[i]){
                 // console.log(compareChoices)
-                alert('Sorry that is not correct. Start game again')
+                if (window.confirm('Sorry that is not correct. Start game again')){
+                    window.location.reload()
+                }
+                // alert('Sorry that is not correct. Start game again')
+                
                 return false
             }
         }   
-    }else {
-     
-        return false
+    } else {
+
+     return false
     }
     // console.log(compareChoices)
     return true
@@ -144,14 +148,84 @@ function getRandomColor() {
 }
 
 startGame.addEventListener('click', e => {
+    computerChoices = []
+    playerChoices = []
+    console.log(computerChoices, playerChoices)
+
     getRandomColor()
     playersTurn()         
 })
 
+// resetBtn.addEventListener('click', reset()) 
+   
+
 // function reset(){
 //     computerChoices = []
 //     playerChoices = []
-    
+//     console.log(computerChoices, playerChoices)
+//     redBtn.removeEventListener('click', e => {
+//         let redColor = 1
+//         redBtn.style.opacity = "90%"
+//         setTimeout(function(){
+//             redBtn.style.opacity = "40%"
+//         },300)
+//         playerChoices.push(redColor)
+//         console.log(playerChoices)
+//             if(compareChoices() === true){
+//                 playerChoices = []
+//                 setTimeout(function(){
+//                     computerTurn()
+//                 }, 500)
+//             }
+//     })
+
+//     blueBtn.removeEventListener('click', e => {
+//         let blueColor = 2
+//         blueBtn.style.opacity = "90%"
+//         setTimeout(function(){
+//             blueBtn.style.opacity = "40%"
+//         },300)      
+//         playerChoices.push(blueColor)
+//         console.log(playerChoices) 
+//             if (compareChoices() === true){
+//                 playerChoices = []
+//                 setTimeout(function(){
+//                     computerTurn()
+//                 }, 500)
+//             }
+//     })
+
+//     greenBtn.removeEventListener('click', e => {
+//         let greenColor = 3
+//         greenBtn.style.opacity = "90%"
+//         setTimeout(function(){
+//             greenBtn.style.opacity = "40%"
+//         },300) 
+//         playerChoices.push(greenColor)
+//         console.log(playerChoices)
+//             if(compareChoices() === true){
+//                 playerChoices = []
+//                 setTimeout(function(){
+//                     computerTurn()
+//                 }, 500)
+//             }
+//     })
+
+//     yellowBtn.removeEventListener('click', e => {
+//         let yellowColor = 4
+//         yellowBtn.style.opacity = "90%"
+//         setTimeout(function(){
+//             yellowBtn.style.opacity = "40%"
+//         },300)  
+//         playerChoices.push(yellowColor)   
+//         console.log(playerChoices) 
+//             if(compareChoices() === true){
+//                 playerChoices = []
+//                 setTimeout(function(){
+//                     computerTurn()
+//                 }, 500)   
+//             }
+//     })
 // }
 
 function waiting(ms){
@@ -199,6 +273,7 @@ async function displayComputerChoices(){
 }
 
 function computerTurn(){
+
     // console.log('computerTurn')
     getRandomColor()
 }
