@@ -1,5 +1,6 @@
 let computerChoices = []
 let playerChoices = []
+let level = 1
 
 const redBtn = document.querySelector('#red')
 const blueBtn = document.querySelector('#blue')
@@ -7,8 +8,11 @@ const greenBtn = document.querySelector('#green')
 const yellowBtn = document.querySelector('#yellow')
 const startGame = document.querySelector('.start')
 const resetBtn = document.querySelector('.reset')
-// const levelCounter = document.querySelector('#level')
-
+const levelCounter = document.querySelector('#level')
+function changeLevel(){
+    level++
+    levelCounter.innerText = (`Level ${level}`)
+}
 
 async function playersTurn(){
     console.log(compareChoices())
@@ -273,7 +277,7 @@ async function displayComputerChoices(){
 }
 
 function computerTurn(){
-
+    changeLevel()
     // console.log('computerTurn')
     getRandomColor()
 }
