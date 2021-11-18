@@ -25,15 +25,18 @@ h2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    border: 10px solid black;
-    border-top-left-radius: 50%;
+    /* border: 10px solid black; */
+    border-radius: 50%;
+    /* border-top-left-radius: 50%;
     border-bottom-left-radius: 50%;
     border-bottom-right-radius: 50%;
-    border-top-right-radius: 50%;
+    border-top-right-radius: 50%; */
     margin-right: auto;
     margin-left: auto;
     margin-top: 50px;
-    box-shadow: 10px whitesmoke;
+    background: radial-gradient(circle at 50px 50px, white, black);
+    box-shadow: 0 0 5px #81d7ec, 0 0 25px #81d7ec, 0 0 50px #81d7ec, 0 0 200px #81d7ec;
+   
 }
 
 
@@ -45,6 +48,7 @@ h2 {
     background-color: red;
     border-top-left-radius: 98%;
     opacity: 40%; 
+   
 }
 
 #blue {
@@ -76,6 +80,7 @@ h2 {
     background-color: yellow;
     border-bottom-left-radius: 98%;
     opacity: 40%;
+   
 }
 
 .start {
@@ -94,7 +99,7 @@ h2 {
 }
 .start:hover {
     background:#6af12b;
-    color: #050801
+    color: #050801;
     box-shadow: 0 0 5px #6af12b, 0 0 25px #6af12b, 0 0 50px #6af12b, 0 0 200px #6af12b;
     -webkit-box-reflect: below 1px linear-gradient(transparent, #0005)
 }
