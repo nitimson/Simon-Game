@@ -4,9 +4,11 @@ Screenshot of game:
 
 
 Introduction:
+
 Simon Game is a game that has been around for many years.  This is my first project as a student of General Assembly Software Engineering.
 
 Technologies used:
+
 HTML 
 CSS 
 Javascript
@@ -14,6 +16,7 @@ Javascript
 
 
 Installation Instructions: 
+
 If you want to play with the code you can clone the repository into a local file.
 
 If you want to play the game just go to:
@@ -37,5 +40,6 @@ Wireframes:
 After playing the game, the reset button was removed and window reloads when player gets the sequence wrong.
 
 Unsolved problems/Major Hurdles:
+
 When the page is reloaded for a new game, there is an intermittent blink of a game color.
 
