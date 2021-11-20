@@ -9,6 +9,7 @@ const yellowBtn = document.querySelector('#yellow')
 const startGame = document.querySelector('.start')
 const resetBtn = document.querySelector('.reset')
 const levelCounter = document.querySelector('#level')
+
 function changeLevel(){
     level++
     levelCounter.innerText = (`Level ${level}`)
@@ -24,7 +25,6 @@ async function playersTurn(){
             redBtn.style.opacity = "40%"
         },300)
         playerChoices.push(redColor)
-        console.log(playerChoices)
             if(compareChoices() === true){
                 playerChoices = []
                 setTimeout(function(){
@@ -39,8 +39,7 @@ async function playersTurn(){
         setTimeout(function(){
             blueBtn.style.opacity = "40%"
         },300)      
-        playerChoices.push(blueColor)
-        console.log(playerChoices) 
+        playerChoices.push(blueColor) 
             if (compareChoices() === true){
                 playerChoices = []
                 setTimeout(function(){
@@ -56,7 +55,6 @@ async function playersTurn(){
             greenBtn.style.opacity = "40%"
         },300) 
         playerChoices.push(greenColor)
-        console.log(playerChoices)
             if(compareChoices() === true){
                 playerChoices = []
                 setTimeout(function(){
@@ -72,7 +70,6 @@ async function playersTurn(){
             yellowBtn.style.opacity = "40%"
         },300)  
         playerChoices.push(yellowColor)   
-        console.log(playerChoices) 
             if(compareChoices() === true){
                 playerChoices = []
                 setTimeout(function(){
@@ -85,25 +82,20 @@ async function playersTurn(){
 }
 
 // ------- This compares computer array with player array -----------
+
 function compareChoices(){
     if (computerChoices.length === playerChoices.length){
         for (let i=0; i <= computerChoices.length; i++){
-            // console.log(computerChoices[i], playerChoices[i])
             if (computerChoices[i] != playerChoices[i]){
-                // console.log(compareChoices)
                 if (window.confirm('Sorry that is not correct. Start game again')){
                     window.location.reload()
                 }
-                // alert('Sorry that is not correct. Start game again')
-                
                 return false
             }
         }   
     } else {
-
-     return false
+        return false
     }
-    // console.log(compareChoices)
     return true
 }
 
@@ -115,6 +107,7 @@ let randomColor = (min, max) => {
 }
 
 // -------- This generates a random # from 1-4 and changes the opacity of that button (color). ------------
+
 function getRandomColor() {
     let randomValue = randomColor(1,4)
 
@@ -160,78 +153,6 @@ startGame.addEventListener('click', e => {
     playersTurn()         
 })
 
-// resetBtn.addEventListener('click', reset()) 
-   
-
-// function reset(){
-//     computerChoices = []
-//     playerChoices = []
-//     console.log(computerChoices, playerChoices)
-//     redBtn.removeEventListener('click', e => {
-//         let redColor = 1
-//         redBtn.style.opacity = "90%"
-//         setTimeout(function(){
-//             redBtn.style.opacity = "40%"
-//         },300)
-//         playerChoices.push(redColor)
-//         console.log(playerChoices)
-//             if(compareChoices() === true){
-//                 playerChoices = []
-//                 setTimeout(function(){
-//                     computerTurn()
-//                 }, 500)
-//             }
-//     })
-
-//     blueBtn.removeEventListener('click', e => {
-//         let blueColor = 2
-//         blueBtn.style.opacity = "90%"
-//         setTimeout(function(){
-//             blueBtn.style.opacity = "40%"
-//         },300)      
-//         playerChoices.push(blueColor)
-//         console.log(playerChoices) 
-//             if (compareChoices() === true){
-//                 playerChoices = []
-//                 setTimeout(function(){
-//                     computerTurn()
-//                 }, 500)
-//             }
-//     })
-
-//     greenBtn.removeEventListener('click', e => {
-//         let greenColor = 3
-//         greenBtn.style.opacity = "90%"
-//         setTimeout(function(){
-//             greenBtn.style.opacity = "40%"
-//         },300) 
-//         playerChoices.push(greenColor)
-//         console.log(playerChoices)
-//             if(compareChoices() === true){
-//                 playerChoices = []
-//                 setTimeout(function(){
-//                     computerTurn()
-//                 }, 500)
-//             }
-//     })
-
-//     yellowBtn.removeEventListener('click', e => {
-//         let yellowColor = 4
-//         yellowBtn.style.opacity = "90%"
-//         setTimeout(function(){
-//             yellowBtn.style.opacity = "40%"
-//         },300)  
-//         playerChoices.push(yellowColor)   
-//         console.log(playerChoices) 
-//             if(compareChoices() === true){
-//                 playerChoices = []
-//                 setTimeout(function(){
-//                     computerTurn()
-//                 }, 500)   
-//             }
-//     })
-// }
-
 function waiting(ms){
     return new Promise(resolve => setTimeout(resolve, ms))
 }
@@ -252,7 +173,6 @@ async function displayComputerChoices(){
             setTimeout(function(){
                 blueBtn.style.opacity = "40%"
             },800)
-            // console.log(computerChoices)
             await waiting(1000)
         } 
 
@@ -261,7 +181,6 @@ async function displayComputerChoices(){
             setTimeout(function(){
                 greenBtn.style.opacity = "40%"
             },800)
-            // console.log(computerChoices)
             await waiting(1000)
         }
 
@@ -270,7 +189,6 @@ async function displayComputerChoices(){
             setTimeout(function(){
                 yellowBtn.style.opacity = "40%"
             },800)
-            // console.log(computerChoices)
             await waiting(1000)
         } 
     }
@@ -278,6 +196,5 @@ async function displayComputerChoices(){
 
 function computerTurn(){
     changeLevel()
-    // console.log('computerTurn')
     getRandomColor()
 }

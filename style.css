@@ -4,12 +4,12 @@ body {
     background-position: center;
     background-size: cover;
 }
+
 h1 {
     text-align: center;
     font-size: 60px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-family: attack graffiti;
-    color: yellowgreen;
+    color: rgb(50, 159, 205);
     text-shadow: 2px 2px 4px whitesmoke;
 }
 
@@ -25,18 +25,13 @@ h2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    /* border: 10px solid black; */
     border-radius: 50%;
-    /* border-top-left-radius: 50%;
-    border-bottom-left-radius: 50%;
-    border-bottom-right-radius: 50%;
-    border-top-right-radius: 50%; */
     margin-right: auto;
     margin-left: auto;
     margin-top: 50px;
-    background: radial-gradient(circle at 50px 50px, white, black);
+    background: radial-gradient(circle at 100px 80px, rgb(206, 202, 202), black);
     box-shadow: 0 0 5px #81d7ec, 0 0 25px #81d7ec, 0 0 50px #81d7ec, 0 0 200px #81d7ec;
-   
+    perspective-origin: left;
 }
 
 
@@ -47,8 +42,7 @@ h2 {
     border-bottom: 5px solid black;
     background-color: red;
     border-top-left-radius: 98%;
-    opacity: 40%; 
-   
+    opacity: 40%;  
 }
 
 #blue {
@@ -59,7 +53,6 @@ h2 {
     background-color: blue;
     border-top-right-radius: 98%;
     opacity: 40%;
-
 }
 
 #green {
@@ -80,11 +73,9 @@ h2 {
     background-color: yellow;
     border-bottom-left-radius: 98%;
     opacity: 40%;
-   
 }
 
 .start {
-    /* margin-right: auto; */
     margin-left: 20%;
     margin-bottom: 10%;
     padding: 20px 20px;
@@ -97,6 +88,7 @@ h2 {
     overflow: hidden;
     border-radius: 20%;
 }
+
 .start:hover {
     background:#6af12b;
     color: #050801;
