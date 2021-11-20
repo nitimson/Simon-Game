@@ -14,7 +14,7 @@ none
 User Story:
 
     Player starts the game.
-    This prompts the computer to make a single choice between red, green, blue, and yellow. The user will clearly see what choice the computer made by seeing the   color get brighter.
+    This prompts the computer to make a single choice between red, green, blue, and yellow. The user will clearly see what choice the computer made by seeing the       color get brighter.
     The player now has to remember that color and choose it again.  
     The computer goes again but this time chooses two colors.
 
@@ -27,5 +27,5 @@ Wireframes:
 ![113C8357-98EA-43D6-A712-298075D402F6_1_105_c](https://user-images.githubusercontent.com/77291649/142701469-c4cdfd03-dec1-4de6-b972-8ddcbcaaf208.jpeg)
 
 
-After playing the game, it didn't make much sense to have a quit button so this was removed.
+After playing the game, the reset button was removed and window reloads when player gets a wrong choice.
 
