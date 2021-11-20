@@ -16,7 +16,6 @@ function changeLevel(){
 }
 
 async function playersTurn(){
-    console.log(compareChoices())
     if (compareChoices() == false){
     redBtn.addEventListener('click', e => {
         let redColor = 1
@@ -138,16 +137,16 @@ function getRandomColor() {
             displayComputerChoices()
             return randomValue
         } 
-        else {
-            console.log('Something is not working')
-        }
+        // else {
+        //     console.log('Something is not working')
+        // }
         return randomValue
 }
 
 startGame.addEventListener('click', e => {
     computerChoices = []
     playerChoices = []
-    console.log(computerChoices, playerChoices)
+    // console.log(computerChoices, playerChoices)
 
     getRandomColor()
     playersTurn()         
