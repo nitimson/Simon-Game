@@ -11,6 +11,8 @@ HTML
 CSS 
 Javascript
 
+
+
 Installation Instructions: 
 If you want to play with the code you can clone the repository into a local file.
 
@@ -32,5 +34,8 @@ Wireframes:
 ![113C8357-98EA-43D6-A712-298075D402F6_1_105_c](https://user-images.githubusercontent.com/77291649/142701469-c4cdfd03-dec1-4de6-b972-8ddcbcaaf208.jpeg)
 
 
-After playing the game, the reset button was removed and window reloads when player gets a wrong choice.
+After playing the game, the reset button was removed and window reloads when player gets the sequence wrong.
+
+Unsolved problems/Major Hurdles:
+When the page is reloaded for a new game, there is an intermittent blink of a game color.
 
