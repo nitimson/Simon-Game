@@ -10,9 +10,10 @@ Simon Game is a game that has been around for many years.  This is my first proj
 TECHNOLOGIES USED
 
 HTML 
-CSS 
-Javascript
 
+CSS 
+
+Javascript
 
 
 INSTALLATION INSTRUCTIONS
